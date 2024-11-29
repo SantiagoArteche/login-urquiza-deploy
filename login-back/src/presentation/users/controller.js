@@ -44,9 +44,9 @@ export const createUser = async (request, response) => {
   const findUser = await userModel.findOne({ email });
 
   if (findUser) {
-    return response.json({ error: "User already exists" });
+    return response.json({ error: "Ya existe un usuario con ese documento" });
   }
-  
+
   try {
     const newUser = await userModel.create({
       name,
