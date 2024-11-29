@@ -23,6 +23,16 @@ export const StudentPage = () => {
     if (!validateToken?.tokenData) navigate("/login");
   };
 
+  const destroySession = () => {
+    if (localStorage.getItem("credentials")) {
+      localStorage.removeItem("credentials");
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
   const career = (career) => {
     if (career?.length > 1) return "bg-purple-950";
     if (career) {
@@ -38,16 +48,6 @@ export const StudentPage = () => {
       }
     }
   };
-
-  const destroySession = () => {
-    if (localStorage.getItem("credentials")) {
-      localStorage.removeItem("credentials");
-    }
-  };
-
-  useEffect(() => {
-    getUser();
-  }, []);
 
   let classRooms = [
     "Práctica Profesionalizante 1",
