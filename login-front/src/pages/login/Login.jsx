@@ -39,10 +39,14 @@ export const Login = () => {
             }),
           }
         ).then((res) => res.json());
-        
+
         if (login.user) {
-          login.user?.password = "";
-          localStorage.setItem("credentials", JSON.stringify(login));
+          const user = login.user;
+          const { password, ...rest } = user;
+          localStorage.setItem(
+            "credentials",
+            JSON.stringify({ token: login.token, user: rest })
+          );
           if (login.user?.role === "alumno") {
             navigate("/student");
           } else if (login.user?.role === "docente") {
