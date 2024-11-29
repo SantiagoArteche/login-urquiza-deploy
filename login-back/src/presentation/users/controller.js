@@ -135,7 +135,7 @@ export const newPassword = async (request, response) => {
 
 const sendEmailRecover = async (email) => {
   const token = await generateToken({ email });
-  const link = `http://localhost:5173/newpassword/${token}`;
+  const link = `https://login-urquiza.vercel.app/newpassword/${token}`;
 
   const nodemailer = new Nodemailer(
     process.env.SERVICE,
