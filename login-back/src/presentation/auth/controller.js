@@ -17,7 +17,7 @@ export const login = async (request, response) => {
 
     const token = await generateToken({ email }, "30m");
 
-    const { password, ...rest } = findUser;
+    const { password: pass, ...rest } = findUser;
     return response
       .cookie("access_token", token, {
         httpOnly: true,
