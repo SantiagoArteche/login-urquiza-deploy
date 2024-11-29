@@ -46,6 +46,7 @@ export const createUser = async (request, response) => {
   if (findUser) {
     return response.json({ error: "User already exists" });
   }
+  
   try {
     const newUser = await userModel.create({
       name,

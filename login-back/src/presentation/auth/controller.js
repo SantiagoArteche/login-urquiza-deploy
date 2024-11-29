@@ -10,7 +10,7 @@ export const login = async (request, response) => {
       email,
     });
 
-    if (!findUser) return response.json(`Usuario no encontrado`);
+    if (!findUser) return response.json(`Credenciales Incorrectas`);
 
     if (!decryptPassword(password, findUser.password))
       return response.json(`Credenciales Incorrectas`);
