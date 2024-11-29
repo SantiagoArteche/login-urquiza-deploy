@@ -19,12 +19,20 @@ export const StudentPage = () => {
       return;
     }
     setTimeout(() => {}, 1000);
-    const validateToken = await fetch(
-      `https://login-urquiza-api.vercel.app/api/auth/verify/${credentials?.token}`
-    ).then((res) => res.json());
 
-    await validateToken;
-    if (!validateToken?.tokenData) navigate("/login");
+    try {
+      const response = await fetch(
+        `https://login-urquiza-api.vercel.app/api/auth/verify/${credentials?.token}`
+      );
+      const validateToken = await response.json();
+
+      if (!validateToken?.tokenData) {
+        navigate("/login");
+      }
+    } catch (error) {
+      console.error("Error validating token:", error);
+      navigate("/login");
+    }
   };
 
   const destroySession = () => {
