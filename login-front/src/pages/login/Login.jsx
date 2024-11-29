@@ -39,8 +39,9 @@ export const Login = () => {
             }),
           }
         ).then((res) => res.json());
-
+        
         if (login.user) {
+          login.user?.password = "";
           localStorage.setItem("credentials", JSON.stringify(login));
           if (login.user?.role === "alumno") {
             navigate("/student");
