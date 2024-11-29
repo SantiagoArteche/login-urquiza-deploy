@@ -61,15 +61,17 @@ export const StudentPage = () => {
     "Problemáticas Socio Contemporáneas",
   ];
 
-  if (user?.career[0] === "AF") {
-    classRooms[1] = "Desarrollo de Sistemas";
-    classRooms[2] = "Estrategias de Negocios ";
-    classRooms[3] = "Gestión de Software 2";
-  } else if (user?.career[0] === "IT") {
-    classRooms[1] = "Bases de Datos";
-    classRooms[2] = "Sistemas Operativos";
-    classRooms[3] = "Algoritmos y Estructura de Datos";
-    classRooms[6] = "Infraestructura de Redes 2";
+  if (user?.career) {
+    if (user?.career[0] === "AF") {
+      classRooms[1] = "Desarrollo de Sistemas";
+      classRooms[2] = "Estrategias de Negocios ";
+      classRooms[3] = "Gestión de Software 2";
+    } else if (user?.career[0] === "IT") {
+      classRooms[1] = "Bases de Datos";
+      classRooms[2] = "Sistemas Operativos";
+      classRooms[3] = "Algoritmos y Estructura de Datos";
+      classRooms[6] = "Infraestructura de Redes 2";
+    }
   }
 
   return (
