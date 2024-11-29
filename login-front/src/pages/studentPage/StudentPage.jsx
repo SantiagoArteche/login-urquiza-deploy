@@ -34,6 +34,7 @@ export const StudentPage = () => {
   }, []);
 
   const career = (career) => {
+    if (career == null) return;
     if (career?.length > 1) return "bg-purple-950";
     if (career) {
       switch (career[0]) {
@@ -61,23 +62,21 @@ export const StudentPage = () => {
     "Problemáticas Socio Contemporáneas",
   ];
 
-  if (user?.career[0] === "AF") {
-    classRooms[1] = "Desarrollo de Sistemas";
-    classRooms[2] = "Estrategias de Negocios ";
-    classRooms[3] = "Gestión de Software 2";
-  } else if (user?.career[0] === "IT") {
-    classRooms[1] = "Bases de Datos";
-    classRooms[2] = "Sistemas Operativos";
-    classRooms[3] = "Algoritmos y Estructura de Datos";
-    classRooms[6] = "Infraestructura de Redes 2";
+  if (user) {
+    if (user?.career[0] === "AF") {
+      classRooms[1] = "Desarrollo de Sistemas";
+      classRooms[2] = "Estrategias de Negocios ";
+      classRooms[3] = "Gestión de Software 2";
+    } else if (user?.career[0] === "IT") {
+      classRooms[1] = "Bases de Datos";
+      classRooms[2] = "Sistemas Operativos";
+      classRooms[3] = "Algoritmos y Estructura de Datos";
+      classRooms[6] = "Infraestructura de Redes 2";
+    }
   }
 
   return (
-    <div
-      className={`min-h-screen ${
-        user?.career && career(user?.career)
-      }  text-white`}
-    >
+    <div className={`min-h-screen ${career(user?.career)}  text-white`}>
       <Navbar
         email={user?.email}
         destroySession={destroySession}
