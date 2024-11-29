@@ -17,14 +17,13 @@ export const login = async (request, response) => {
 
     const token = await generateToken({ email }, "30m");
 
-    const { password: pass, ...rest } = findUser;
     return response
       .cookie("access_token", token, {
         httpOnly: true,
         maxAge: 1000 * 60 * 120,
       })
       .status(200)
-      .json({ user: rest, token });
+      .json({ user: findUser, token });
   } catch (error) {
     return response.json({ error: error.toString() });
   }
@@ -36,7 +35,6 @@ export const validate = async (request, response) => {
   if (token === null) return response.json({ error: "bad request" });
   try {
     const tokenData = token && (await verifyToken(token));
-
     return response.json({ msg: "User logged", tokenData });
   } catch (error) {
     return response.json({ error: error.toString() });
