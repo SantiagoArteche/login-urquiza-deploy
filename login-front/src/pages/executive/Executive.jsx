@@ -16,7 +16,7 @@ export const ExecutivePage = () => {
 
   const getUser = async () => {
     const validateToken = await fetch(
-      `http://localhost:7000/api/auth/verify/${credentials?.token}`
+      `https://login-urquiza-api.vercel.app/api/auth/verify/${credentials?.token}`
     ).then((res) => res.json());
 
     await validateToken;

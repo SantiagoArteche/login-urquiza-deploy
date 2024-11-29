@@ -16,7 +16,7 @@ export const StudentPage = () => {
   const getUser = async () => {
     setTimeout(() => {}, 1000);
     const validateToken = await fetch(
-      `http://localhost:7000/api/auth/verify/${credentials?.token}`
+      `https://login-urquiza-api.vercel.app/api/auth/verify/${credentials?.token}`
     ).then((res) => res.json());
 
     await validateToken;

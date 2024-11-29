@@ -38,7 +38,7 @@ export const PasswordRecovery = () => {
 
       try {
         const changePassword = await fetch(
-          `http://localhost:7000/api/users/changepassword`,
+          `https://login-urquiza-api.vercel.app/api/users/changepassword`,
           {
             method: "POST",
             headers: {

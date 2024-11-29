@@ -48,18 +48,21 @@ export const Register = () => {
       }
 
       try {
-        const createUser = await fetch("http://localhost:7000/api/users", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            name: values.name,
-            email: `${values.dni}@terciariourquiza.edu.ar`,
-            password: values.password,
-            career: [values.career],
-          }),
-        }).then((res) => res.json());
+        const createUser = await fetch(
+          "https://login-urquiza-api.vercel.app/api/users",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: values.name,
+              email: `${values.dni}@terciariourquiza.edu.ar`,
+              password: values.password,
+              career: [values.career],
+            }),
+          }
+        ).then((res) => res.json());
         if (createUser.email) {
           Swal.fire({
             title: "¡Éxito!",

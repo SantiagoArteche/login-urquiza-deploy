@@ -12,7 +12,7 @@ export const ForgetPassword = () => {
     onSubmit: async (values) => {
       try {
         const sendRecovery = await fetch(
-          "http://localhost:7000/api/users/recover",
+          "https://login-urquiza-api.vercel.app/api/users/recover",
           {
             method: "POST",
             headers: {

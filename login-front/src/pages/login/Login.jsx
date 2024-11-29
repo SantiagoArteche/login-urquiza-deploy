@@ -26,16 +26,19 @@ export const Login = () => {
     },
     onSubmit: async (values) => {
       try {
-        const login = await fetch("http://localhost:7000/api/auth/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: values.email,
-            password: values.password,
-          }),
-        }).then((res) => res.json());
+        const login = await fetch(
+          "https://login-urquiza-api.vercel.app/api/auth/login",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: values.email,
+              password: values.password,
+            }),
+          }
+        ).then((res) => res.json());
 
         if (login.user) {
           localStorage.setItem("credentials", JSON.stringify(login));
