@@ -103,7 +103,7 @@ export const forgetPassword = async (request, response) => {
     if (!sendEmail) throw new Error("Error enviando el email");
 
     return response.json({
-      msg: `Email para recuperar la contrasena enviado a: ${email}`,
+      msg: `Email para recuperar la contraseña enviado a: ${email}`,
     });
   } catch (error) {
     return response.json({ error: error.toString() });
