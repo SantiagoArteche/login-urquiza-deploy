@@ -12,7 +12,7 @@ const formInputs = [
   },
   {
     type: "password",
-    placeholder: "Contrasena",
+    placeholder: "Contraseña",
     name: "password",
   },
 ];

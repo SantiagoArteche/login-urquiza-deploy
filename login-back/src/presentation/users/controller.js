@@ -118,7 +118,7 @@ export const newPassword = async (request, response) => {
     const findUser = await userModel.findOne({ email });
 
     if (!findUser) {
-      return response.json("El usuario buscado no existe!");
+      return response.json(`El usuario con el email ${email} no existe!`);
     }
 
     await userModel.findByIdAndUpdate(findUser.id, {
